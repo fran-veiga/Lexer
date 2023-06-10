@@ -26,9 +26,9 @@ def afd_id(lexema):
             break
 
     if estado_actual in estados_finales:
-        return True
+        return "FINAL"
     else:
-        return False
+        return "TRAMPA"
 
 
 def afd_num(lexema):
