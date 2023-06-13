@@ -21,69 +21,83 @@ tokens = {
     "Num": afd_num,
 }
 
-
 def lexer(programa):
+    # Eliminar espacio en blanco antes y despues del programa, y agregar un
+    # espacio al final para poder agregar el ultimo token.
     programa = programa.strip()
-    tokens_out = []
-    tokens_posibles = [t for t in tokens]
-    tokens_posibles_1mas = tokens_posibles.copy()
+    programa += " "
+
+    tokens_out = []  # La salida del programa
+    tokens_posibles = [t for t in tokens]  # los tokens posibles para el lexema
+    tokens_posibles_1mas = tokens_posibles.copy() # tokens posibles para un caracter mas
     lexema = ""
     lexema1mas = ""
     for i in range(len(programa)):
-        tokens_final = []
 
-        # lexema += programa[i]
+        # Se incrementan el lexema y el lexema1mas en un caracter
         lexema = lexema1mas
         lexema1mas = lexema1mas + programa[i]
-        tokens_posibles = tokens_posibles_1mas.copy()
 
+        # Si tokens_posibles es vacío esto es porque se acaba de agregar un
+        # lexema a la salida, entonces hay que agregar los tokens posibles con
+        # para el unico caracter que contiene el lexema
+        if tokens_posibles == []:
+            for token in tokens:
+                if tokens[token](lexema) != "TRAMPA":
+                    tokens_posibles.append(token)
+            tokens_posibles_1mas = tokens_posibles.copy()
+        else:
+            # Si tokens_posibles no esta vacio, solo se copian los tokens
+            # posibles con un caracter mas del ciclo anterior
+            tokens_posibles = tokens_posibles_1mas.copy()
+
+        # si el lexema es solo un espacio en blanco o un salto de linea, saltear
+        # un caracter y no hacer nada.
         if lexema == " " or lexema == "\n":
-            # print("salteado espacio\n")
             lexema1mas = programa[i]
             continue
 
+        # contiene los tokens en estado final con el lexema (se llena en el ciclo)
+        tokens_final = []
         for token in tokens_posibles:
+            # si el afd para un token con el lexema1mas cae en estado trampa,
+            # eliminar ese token de los tokens_posibles_1mas
             estado_1mas = tokens[token](lexema1mas)
             if estado_1mas == "TRAMPA":
                 tokens_posibles_1mas.remove(token)
+            # si el afd para un token con el lexema cae en un estado final,
+            # agregarlo a los tokens_finales
             estado_actual = tokens[token](lexema)
             if estado_actual == "FINAL":
                 tokens_final.append(token)
 
+
+        # SACAR COMENTARIO PARA VER EL ESTADO DEL PROGRAMA PASO A PASO
         # print(f"lexema: \"{lexema}\"")
         # print(f"lexema 1 mas: lexema: \"{lexema1mas}\"")
         # print("Tokens posibles: ", tokens_posibles)
         # print("Tokens 1 mas   : ", str(tokens_posibles_1mas))
         # print("Tokens finales : ", str(tokens_final) + "\n")
 
+
+        # si no hay ningun token posible con un caracter mas, y hay al menos un
+        # token en estado final, agregar ese token a la salida del lexer.
         if tokens_posibles_1mas == []:
             if tokens_final != []:
                 tokens_out.append(tokens_final[0])
-                tokens_posibles = [t for t in tokens]
-                tokens_posibles_1mas = tokens_posibles.copy()
                 lexema1mas = programa[i]
+                tokens_posibles = []
             else:
-                raise ValueError()
-
-    error = True
-    for token in tokens_posibles_1mas:
-        estado_actual = tokens[token](lexema1mas)
-        # print(lexema1mas)
-        # print(estado_actual)
-        if estado_actual == "FINAL":
-            tokens_out.append(token)
-            error = False
-            break
-        else:
-            continue
-    if error:
-        raise ValueError()
+                # En caso de que no haya ningun token posible con un caracter
+                # mas pero tampoco haya ninguno en estado final, terminar el
+                # lexer con un error de token invalido.
+                raise ValueError("Token invalido")
 
     return tokens_out
 
 
 programa = '''
-x=98234;
+x = 98234;
 
 
 si 6 < 7 entonces
@@ -91,8 +105,6 @@ si 6 < 7 entonces
 sino
     x = x / 3;
 finsi
-    
-
 '''
 
 print(f"input: {programa}")

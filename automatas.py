@@ -1,3 +1,8 @@
+# Todos los automatas reciben un lexema y devuelven:
+#   - FINAL     : si el lexema es aceptado por el automata.
+#   - NO FINAL  : si el lexema no es aceptado pero tiene posibilidad de serlo.
+#   - TRAMPA    : si el lexema nunca va a poder ser aceptado por el automata.
+
 def afd_coma(lexema):
     if lexema == ",":
         return "FINAL"
@@ -45,7 +50,11 @@ def afd_puntoycoma(lexema):
         return "TRAMPA"
 
 
-def automata_por_tabla(lexema, tabla, estados_finales, estado_actual):
+# Esta funcion toma un lexema, una tabla de transicion en forma de un
+# diccionario de python, una lista de estados finales, y un estado inicial.
+# Es usada por los automatas debajo para calcular si un lexema es aceptado o no.
+def automata_por_tabla(lexema, tabla, estados_finales, estado_inicial):
+    estado_actual = estado_inicial
     for c in lexema:
         if c in tabla[estado_actual]:
             estado_actual = tabla[estado_actual][c]
