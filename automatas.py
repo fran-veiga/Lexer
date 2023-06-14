@@ -3,8 +3,14 @@
 #   - NO FINAL  : si el lexema no es aceptado pero tiene posibilidad de serlo.
 #   - TRAMPA    : si el lexema nunca va a poder ser aceptado por el automata.
 
-def afd_coma(lexema):
-    if lexema == ",":
+def afd_der_paren(lexema):
+    if lexema == ")":
+        return "FINAL"
+    else:
+        return "TRAMPA"
+
+def afd_izq_paren(lexema):
+    if lexema == "(":
         return "FINAL"
     else:
         return "TRAMPA"

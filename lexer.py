@@ -1,7 +1,8 @@
 from automatas import *
 
 tokens = {
-    "Coma": afd_coma,
+    "DerParen": afd_der_paren,
+    "IzqParen": afd_izq_paren,
     "PuntoYComa": afd_puntoycoma,
     "Entonces": afd_entonces,
     "Equal": afd_equal,
@@ -17,9 +18,10 @@ tokens = {
     "Oprel": afd_oprel,
     "Opmult": afd_opmult,
     "Opsuma": afd_opsuma,
-    "Id": afd_id,
     "Num": afd_num,
+    "Id": afd_id,
 }
+
 
 def lexer(programa):
     # Eliminar espacio en blanco antes y despues del programa, y agregar un
@@ -29,7 +31,8 @@ def lexer(programa):
 
     tokens_out = []  # La salida del programa
     tokens_posibles = [t for t in tokens]  # los tokens posibles para el lexema
-    tokens_posibles_1mas = tokens_posibles.copy() # tokens posibles para un caracter mas
+    # tokens posibles para un caracter mas
+    tokens_posibles_1mas = tokens_posibles.copy()
     lexema = ""
     lexema1mas = ""
     for i in range(len(programa)):
@@ -53,7 +56,7 @@ def lexer(programa):
 
         # si el lexema es solo un espacio en blanco o un salto de linea, saltear
         # un caracter y no hacer nada.
-        if lexema == " " or lexema == "\n":
+        if lexema == " " or lexema == "\n" or lexema == "\t":
             lexema1mas = programa[i]
             continue
 
@@ -71,14 +74,12 @@ def lexer(programa):
             if estado_actual == "FINAL":
                 tokens_final.append(token)
 
-
         # SACAR COMENTARIO PARA VER EL ESTADO DEL PROGRAMA PASO A PASO
         # print(f"lexema: \"{lexema}\"")
         # print(f"lexema 1 mas: lexema: \"{lexema1mas}\"")
         # print("Tokens posibles: ", tokens_posibles)
         # print("Tokens 1 mas   : ", str(tokens_posibles_1mas))
         # print("Tokens finales : ", str(tokens_final) + "\n")
-
 
         # si no hay ningun token posible con un caracter mas, y hay al menos un
         # token en estado final, agregar ese token a la salida del lexer.
@@ -96,7 +97,9 @@ def lexer(programa):
     return tokens_out
 
 
-programa = '''
+tests = [ 
+# test 1
+'''
 x = 98234;
 
 
@@ -105,7 +108,29 @@ si 6 < 7 entonces
 sino
     x = x / 3;
 finsi
+''',
+
+# test 2
+'''
+func mult(n1; n2)
+    x = n1 * n2;
+    mostrar sebas1
+finfunc
+''',
+
+# test 3
 '''
 
-print(f"input: {programa}")
-print(lexer(programa))
+'''
+
+
+
+]
+
+
+for i in range(len(tests)):
+    print(f'=========TEST N°{i+1}=========')
+    print(tests[i])
+    print(f'---- OUTPUT \n{lexer(tests[i])}')
+    print("")
+    print("")
