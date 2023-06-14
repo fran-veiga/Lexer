@@ -132,7 +132,85 @@ hasta i == x
 # test 4
 '''
 23hola+-sifinsi
+''',
+
+#test 5
+''' 
+repetir
+    i=i+1;
+    leerx;
+    x=x*x
+    mostrarx;
+hastai==33
+''',
+
+#test 6
+''' 
+vmax=0;
+leer y;
+si y>vmax entonces
+    vmax=y;
+sino
+    e=e+1;
+finsi
+mostrar vmax;
+mostrar e;
+''',
+
+#test 7
 '''
+repetir
+    i=i+1;
+    leer nombre;
+    leer edad;
+    si edad>=18 entonces 
+        mostrar nombre;
+    sino
+        vdif=18-edad;
+        mostrar vdif;
+    finsi
+hasta i==20
+''',
+
+#test 8
+'''
+leer x;
+leer y;
+si x>y entonces 
+    x=x+y;
+sino
+    y=x+y;
+finsi
+''',
+
+#test 9
+'''
+func rest(n1; n2)
+    x = n1 - n2;
+    mostrar x;
+finfunc
+''',
+
+#test 10
+'''
+vmax=0;
+repetir
+    i=i+1;
+    leer socio;
+    leer dni;
+    leer edad;
+    si edad>vmax entonces 
+        msocio= socio;
+        mdni=dni;
+        medad=edad;
+    finsi
+hasta i==50
+mostrar msocio;
+mostrar mdni;
+mostrar medad;
+''',
+
+    
 
 
 
