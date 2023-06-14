@@ -97,7 +97,7 @@ def lexer(programa):
     return tokens_out
 
 
-tests = [ 
+tests = [
 # test 1
 '''
 x = 98234;
@@ -114,14 +114,27 @@ finsi
 '''
 func mult(n1; n2)
     x = n1 * n2;
-    mostrar sebas1
+    mostrar x;
 finfunc
 ''',
 
 # test 3
 '''
+leer x;
 
+i = 0
+repetir
+    mostrar i;
+    i = i + 1
+hasta i == x
+''',
+
+# test 4
 '''
+23hola+-sifinsi
+'''
+
+
 
 
 
