@@ -141,7 +141,7 @@ repetir
     leerx;
     x=x*x
     mostrarx;
-hastai==33
+hasta i==33
 ''',
 
 #test 6
