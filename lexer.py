@@ -9,10 +9,10 @@ tokens = {
     "FinFunc": afd_finfunc,
     "FinSi": afd_finsi,
     "Func": afd_func,
-    "FinSi": afd_finsi,
     "Hasta": afd_hasta,
     "Leer": afd_leer,
     "Mostrar": afd_mostrar,
+    "Repetir": afd_repetir,
     "Si": afd_si,
     "Sino": afd_sino,
     "Oprel": afd_oprel,
@@ -85,7 +85,7 @@ def lexer(programa):
         # token en estado final, agregar ese token a la salida del lexer.
         if tokens_posibles_1mas == []:
             if tokens_final != []:
-                tokens_out.append(tokens_final[0])
+                tokens_out.append({tokens_final[0]: lexema})
                 lexema1mas = programa[i]
                 tokens_posibles = []
             else:
@@ -98,8 +98,8 @@ def lexer(programa):
 
 
 tests = [
-# test 1
-'''
+    # test 1
+    '''
 x = 98234;
 
 
@@ -110,16 +110,16 @@ sino
 finsi
 ''',
 
-# test 2
-'''
+    # test 2
+    '''
 func mult(n1; n2)
     x = n1 * n2;
     mostrar x;
 finfunc
 ''',
 
-# test 3
-'''
+    # test 3
+    '''
 leer x;
 
 i = 0
@@ -129,13 +129,13 @@ repetir
 hasta i == x
 ''',
 
-# test 4
-'''
+    # test 4
+    '''
 23hola+-sifinsi
 ''',
 
-#test 5
-''' 
+    # test 5
+    ''' 
 repetir
     i=i+1;
     leerx;
@@ -144,8 +144,8 @@ repetir
 hasta i==33
 ''',
 
-#test 6
-''' 
+    # test 6
+    ''' 
 vmax=0;
 leer y;
 si y>vmax entonces
@@ -157,8 +157,8 @@ mostrar vmax;
 mostrar e;
 ''',
 
-#test 7
-'''
+    # test 7
+    '''
 repetir
     i=i+1;
     leer nombre;
@@ -172,8 +172,8 @@ repetir
 hasta i==20
 ''',
 
-#test 8
-'''
+    # test 8
+    '''
 leer x;
 leer y;
 si x>y entonces 
@@ -183,16 +183,16 @@ sino
 finsi
 ''',
 
-#test 9
-'''
+    # test 9
+    '''
 func rest(n1; n2)
     x = n1 - n2;
     mostrar x;
 finfunc
 ''',
 
-#test 10
-'''
+    # test 10
+    '''
 vmax=0;
 repetir
     i=i+1;
@@ -209,13 +209,6 @@ mostrar msocio;
 mostrar mdni;
 mostrar medad;
 ''',
-
-    
-
-
-
-
-
 ]
 
 

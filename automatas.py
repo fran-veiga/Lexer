@@ -9,15 +9,9 @@ def afd_der_paren(lexema):
     else:
         return "TRAMPA"
 
+
 def afd_izq_paren(lexema):
     if lexema == "(":
-        return "FINAL"
-    else:
-        return "TRAMPA"
-
-
-def afd_equal(lexema):
-    if lexema == "=":
         return "FINAL"
     else:
         return "TRAMPA"
@@ -78,9 +72,9 @@ def automata_por_tabla(lexema, tabla, estados_finales, estado_inicial):
 def afd_entonces(lexema):
     tabla = {
         'A': {'e': 'B'},
+        'B': {'n': 'C'},
         'C': {'t': 'D'},
         'D': {'o': 'E'},
-        'B': {'n': 'C'},
         'E': {'n': 'F'},
         'F': {'c': 'G'},
         'G': {'e': 'H'},
@@ -89,6 +83,19 @@ def afd_entonces(lexema):
         'T': {}
     }
     return automata_por_tabla(lexema, tabla, ["I"], "A")
+
+
+def afd_equal(lexema):
+    tabla = {
+        'A': {'e': 'B'},
+        'B': {'q': 'C'},
+        'C': {'u': 'D'},
+        'D': {'a': 'E'},
+        'E': {'l': 'F'},
+        'F': {},
+        'T': {}
+    }
+    return automata_por_tabla(lexema, tabla, ["F"], "A")
 
 
 def afd_finfunc(lexema):
@@ -197,14 +204,13 @@ def afd_opmult(lexema):
 
 def afd_oprel(lexema):
     tabla = {
-        'A': {">": "B", "<": "B", "=": "C"},
+        'A': {">": "B", "<": "C", "=": "D"},
         'B': {"=": "D"},
-        'C': {"=": "D"},
+        'C': {">": "D", "=": "D"},
         'D': {},
         'T': {}
     }
-
-    return automata_por_tabla(lexema, tabla, ["B", "D"], "A")
+    return automata_por_tabla(lexema, tabla, ["B", "C", "D"], "A")
 
 
 def afd_opsuma(lexema):
