@@ -126,7 +126,7 @@ i equal 0
 repetir
     mostrar i;
     i equal i + 1
-hasta i == x
+hasta i = x
 ''',
 
     # test 4
@@ -141,7 +141,7 @@ repetir
     leerx;
     x=x*x
     mostrarx;
-hasta i==33
+hasta i=33
 ''',
 
     # test 6
@@ -169,7 +169,7 @@ repetir
         vdif equal 18-edad;
         mostrar vdif;
     finsi
-hasta i==20
+hasta i=20
 ''',
 
     # test 8
@@ -204,7 +204,7 @@ repetir
         mdni equal dni;
         medad equal edad;
     finsi
-hasta i==50
+hasta i=50
 mostrar msocio;
 mostrar mdni;
 mostrar medad;
