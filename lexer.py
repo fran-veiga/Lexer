@@ -100,20 +100,20 @@ def lexer(programa):
 tests = [
     # test 1
     '''
-x = 98234;
+x equal 98234;
 
 
 si 6 < 7 entonces
-    x = x / 4;
+    x equal x / 4;
 sino
-    x = x / 3;
+    x equal x / 3;
 finsi
 ''',
 
     # test 2
     '''
 func mult(n1; n2)
-    x = n1 * n2;
+    x equal n1 * n2;
     mostrar x;
 finfunc
 ''',
@@ -122,10 +122,10 @@ finfunc
     '''
 leer x;
 
-i = 0
+i equal 0
 repetir
     mostrar i;
-    i = i + 1
+    i equal i + 1
 hasta i == x
 ''',
 
@@ -137,7 +137,7 @@ hasta i == x
     # test 5
     ''' 
 repetir
-    i=i+1;
+    iequali+1;
     leerx;
     x=x*x
     mostrarx;
@@ -149,9 +149,9 @@ hasta i==33
 vmax=0;
 leer y;
 si y>vmax entonces
-    vmax=y;
+    vmax equal y;
 sino
-    e=e+1;
+    e equal e+1;
 finsi
 mostrar vmax;
 mostrar e;
@@ -160,13 +160,13 @@ mostrar e;
     # test 7
     '''
 repetir
-    i=i+1;
+    i equal i+1;
     leer nombre;
     leer edad;
     si edad>=18 entonces 
         mostrar nombre;
     sino
-        vdif=18-edad;
+        vdif equal 18-edad;
         mostrar vdif;
     finsi
 hasta i==20
@@ -177,32 +177,32 @@ hasta i==20
 leer x;
 leer y;
 si x>y entonces 
-    x=x+y;
+    x equal x+y;
 sino
-    y=x+y;
+    y equal x+y;
 finsi
 ''',
 
     # test 9
     '''
 func rest(n1; n2)
-    x = n1 - n2;
+    x equal n1 - n2;
     mostrar x;
 finfunc
 ''',
 
     # test 10
     '''
-vmax=0;
+vmax equal 0;
 repetir
-    i=i+1;
+    i equal i+1;
     leer socio;
     leer dni;
     leer edad;
     si edad>vmax entonces 
-        msocio= socio;
-        mdni=dni;
-        medad=edad;
+        msocio equal socio;
+        mdni equal dni;
+        medad equal edad;
     finsi
 hasta i==50
 mostrar msocio;
