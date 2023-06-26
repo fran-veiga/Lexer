@@ -1,41 +1,41 @@
 =========TEST N°1=========
 
-x = 98234;
+x equal 98234;
 
 
 si 6 < 7 entonces
-    x = x / 4;
+    x equal x / 4;
 sino
-    x = x / 3;
+    x equal x / 3;
 finsi
 
 ---- OUTPUT 
-[{'Id': 'x'}, {'Oprel': '='}, {'Num': '98234'}, {'PuntoYComa': ';'}, {'Si': 'si'}, {'Num': '6'}, {'Oprel': '<'}, {'Num': '7'}, {'Entonces': 'entonces'}, {'Id': 'x'}, {'Oprel': '='}, {'Id': 'x'}, {'Opmult': '/'}, {'Num': '4'}, {'PuntoYComa': ';'}, {'Sino': 'sino'}, {'Id': 'x'}, {'Oprel': '='}, {'Id': 'x'}, {'Opmult': '/'}, {'Num': '3'}, {'PuntoYComa': ';'}, {'FinSi': 'finsi'}]
+[{'Id': 'x'}, {'Equal': 'equal'}, {'Num': '98234'}, {'PuntoYComa': ';'}, {'Si': 'si'}, {'Num': '6'}, {'Oprel': '<'}, {'Num': '7'}, {'Entonces': 'entonces'}, {'Id': 'x'}, {'Equal': 'equal'}, {'Id': 'x'}, {'Opmult': '/'}, {'Num': '4'}, {'PuntoYComa': ';'}, {'Sino': 'sino'}, {'Id': 'x'}, {'Equal': 'equal'}, {'Id': 'x'}, {'Opmult': '/'}, {'Num': '3'}, {'PuntoYComa': ';'}, {'FinSi': 'finsi'}]
 
 
 =========TEST N°2=========
 
 func mult(n1; n2)
-    x = n1 * n2;
+    x equal n1 * n2;
     mostrar x;
 finfunc
 
 ---- OUTPUT 
-[{'Func': 'func'}, {'Id': 'mult'}, {'IzqParen': '('}, {'Id': 'n1'}, {'PuntoYComa': ';'}, {'Id': 'n2'}, {'DerParen': ')'}, {'Id': 'x'}, {'Oprel': '='}, {'Id': 'n1'}, {'Opmult': '*'}, {'Id': 'n2'}, {'PuntoYComa': ';'}, {'Mostrar': 'mostrar'}, {'Id': 'x'}, {'PuntoYComa': ';'}, {'FinFunc': 'finfunc'}]
+[{'Func': 'func'}, {'Id': 'mult'}, {'IzqParen': '('}, {'Id': 'n1'}, {'PuntoYComa': ';'}, {'Id': 'n2'}, {'DerParen': ')'}, {'Id': 'x'}, {'Equal': 'equal'}, {'Id': 'n1'}, {'Opmult': '*'}, {'Id': 'n2'}, {'PuntoYComa': ';'}, {'Mostrar': 'mostrar'}, {'Id': 'x'}, {'PuntoYComa': ';'}, {'FinFunc': 'finfunc'}]
 
 
 =========TEST N°3=========
 
 leer x;
 
-i = 0
+i equal 0
 repetir
     mostrar i;
-    i = i + 1
-hasta i == x
+    i equal i + 1
+hasta i = x
 
 ---- OUTPUT 
-[{'Leer': 'leer'}, {'Id': 'x'}, {'PuntoYComa': ';'}, {'Id': 'i'}, {'Oprel': '='}, {'Num': '0'}, {'Repetir': 'repetir'}, {'Mostrar': 'mostrar'}, {'Id': 'i'}, {'PuntoYComa': ';'}, {'Id': 'i'}, {'Oprel': '='}, {'Id': 'i'}, {'Opsuma': '+'}, {'Num': '1'}, {'Hasta': 'hasta'}, {'Id': 'i'}, {'Oprel': '='}, {'Oprel': '='}, {'Id': 'x'}]
+[{'Leer': 'leer'}, {'Id': 'x'}, {'PuntoYComa': ';'}, {'Id': 'i'}, {'Equal': 'equal'}, {'Num': '0'}, {'Repetir': 'repetir'}, {'Mostrar': 'mostrar'}, {'Id': 'i'}, {'PuntoYComa': ';'}, {'Id': 'i'}, {'Equal': 'equal'}, {'Id': 'i'}, {'Opsuma': '+'}, {'Num': '1'}, {'Hasta': 'hasta'}, {'Id': 'i'}, {'Oprel': '='}, {'Id': 'x'}]
 
 
 =========TEST N°4=========
@@ -49,14 +49,14 @@ hasta i == x
 =========TEST N°5=========
  
 repetir
-    i=i+1;
+    iequali+1;
     leerx;
     x=x*x
     mostrarx;
-hasta i==33
+hasta i=33
 
 ---- OUTPUT 
-[{'Repetir': 'repetir'}, {'Id': 'i'}, {'Oprel': '='}, {'Id': 'i'}, {'Opsuma': '+'}, {'Num': '1'}, {'PuntoYComa': ';'}, {'Id': 'leerx'}, {'PuntoYComa': ';'}, {'Id': 'x'}, {'Oprel': '='}, {'Id': 'x'}, {'Opmult': '*'}, {'Id': 'x'}, {'Id': 'mostrarx'}, {'PuntoYComa': ';'}, {'Hasta': 'hasta'}, {'Id': 'i'}, {'Oprel': '='}, {'Oprel': '='}, {'Num': '33'}]
+[{'Repetir': 'repetir'}, {'Id': 'iequali'}, {'Opsuma': '+'}, {'Num': '1'}, {'PuntoYComa': ';'}, {'Id': 'leerx'}, {'PuntoYComa': ';'}, {'Id': 'x'}, {'Oprel': '='}, {'Id': 'x'}, {'Opmult': '*'}, {'Id': 'x'}, {'Id': 'mostrarx'}, {'PuntoYComa': ';'}, {'Hasta': 'hasta'}, {'Id': 'i'}, {'Oprel': '='}, {'Num': '33'}]
 
 
 =========TEST N°6=========
@@ -64,33 +64,33 @@ hasta i==33
 vmax=0;
 leer y;
 si y>vmax entonces
-    vmax=y;
+    vmax equal y;
 sino
-    e=e+1;
+    e equal e+1;
 finsi
 mostrar vmax;
 mostrar e;
 
 ---- OUTPUT 
-[{'Id': 'vmax'}, {'Oprel': '='}, {'Num': '0'}, {'PuntoYComa': ';'}, {'Leer': 'leer'}, {'Id': 'y'}, {'PuntoYComa': ';'}, {'Si': 'si'}, {'Id': 'y'}, {'Oprel': '>'}, {'Id': 'vmax'}, {'Entonces': 'entonces'}, {'Id': 'vmax'}, {'Oprel': '='}, {'Id': 'y'}, {'PuntoYComa': ';'}, {'Sino': 'sino'}, {'Id': 'e'}, {'Oprel': '='}, {'Id': 'e'}, {'Opsuma': '+'}, {'Num': '1'}, {'PuntoYComa': ';'}, {'FinSi': 'finsi'}, {'Mostrar': 'mostrar'}, {'Id': 'vmax'}, {'PuntoYComa': ';'}, {'Mostrar': 'mostrar'}, {'Id': 'e'}, {'PuntoYComa': ';'}]
+[{'Id': 'vmax'}, {'Oprel': '='}, {'Num': '0'}, {'PuntoYComa': ';'}, {'Leer': 'leer'}, {'Id': 'y'}, {'PuntoYComa': ';'}, {'Si': 'si'}, {'Id': 'y'}, {'Oprel': '>'}, {'Id': 'vmax'}, {'Entonces': 'entonces'}, {'Id': 'vmax'}, {'Equal': 'equal'}, {'Id': 'y'}, {'PuntoYComa': ';'}, {'Sino': 'sino'}, {'Id': 'e'}, {'Equal': 'equal'}, {'Id': 'e'}, {'Opsuma': '+'}, {'Num': '1'}, {'PuntoYComa': ';'}, {'FinSi': 'finsi'}, {'Mostrar': 'mostrar'}, {'Id': 'vmax'}, {'PuntoYComa': ';'}, {'Mostrar': 'mostrar'}, {'Id': 'e'}, {'PuntoYComa': ';'}]
 
 
 =========TEST N°7=========
 
 repetir
-    i=i+1;
+    i equal i+1;
     leer nombre;
     leer edad;
     si edad>=18 entonces 
         mostrar nombre;
     sino
-        vdif=18-edad;
+        vdif equal 18-edad;
         mostrar vdif;
     finsi
-hasta i==20
+hasta i=20
 
 ---- OUTPUT 
-[{'Repetir': 'repetir'}, {'Id': 'i'}, {'Oprel': '='}, {'Id': 'i'}, {'Opsuma': '+'}, {'Num': '1'}, {'PuntoYComa': ';'}, {'Leer': 'leer'}, {'Id': 'nombre'}, {'PuntoYComa': ';'}, {'Leer': 'leer'}, {'Id': 'edad'}, {'PuntoYComa': ';'}, {'Si': 'si'}, {'Id': 'edad'}, {'Oprel': '>='}, {'Num': '18'}, {'Entonces': 'entonces'}, {'Mostrar': 'mostrar'}, {'Id': 'nombre'}, {'PuntoYComa': ';'}, {'Sino': 'sino'}, {'Id': 'vdif'}, {'Oprel': '='}, {'Num': '18'}, {'Opsuma': '-'}, {'Id': 'edad'}, {'PuntoYComa': ';'}, {'Mostrar': 'mostrar'}, {'Id': 'vdif'}, {'PuntoYComa': ';'}, {'FinSi': 'finsi'}, {'Hasta': 'hasta'}, {'Id': 'i'}, {'Oprel': '='}, {'Oprel': '='}, {'Num': '20'}]
+[{'Repetir': 'repetir'}, {'Id': 'i'}, {'Equal': 'equal'}, {'Id': 'i'}, {'Opsuma': '+'}, {'Num': '1'}, {'PuntoYComa': ';'}, {'Leer': 'leer'}, {'Id': 'nombre'}, {'PuntoYComa': ';'}, {'Leer': 'leer'}, {'Id': 'edad'}, {'PuntoYComa': ';'}, {'Si': 'si'}, {'Id': 'edad'}, {'Oprel': '>='}, {'Num': '18'}, {'Entonces': 'entonces'}, {'Mostrar': 'mostrar'}, {'Id': 'nombre'}, {'PuntoYComa': ';'}, {'Sino': 'sino'}, {'Id': 'vdif'}, {'Equal': 'equal'}, {'Num': '18'}, {'Opsuma': '-'}, {'Id': 'edad'}, {'PuntoYComa': ';'}, {'Mostrar': 'mostrar'}, {'Id': 'vdif'}, {'PuntoYComa': ';'}, {'FinSi': 'finsi'}, {'Hasta': 'hasta'}, {'Id': 'i'}, {'Oprel': '='}, {'Num': '20'}]
 
 
 =========TEST N°8=========
@@ -98,45 +98,45 @@ hasta i==20
 leer x;
 leer y;
 si x>y entonces 
-    x=x+y;
+    x equal x+y;
 sino
-    y=x+y;
+    y equal x+y;
 finsi
 
 ---- OUTPUT 
-[{'Leer': 'leer'}, {'Id': 'x'}, {'PuntoYComa': ';'}, {'Leer': 'leer'}, {'Id': 'y'}, {'PuntoYComa': ';'}, {'Si': 'si'}, {'Id': 'x'}, {'Oprel': '>'}, {'Id': 'y'}, {'Entonces': 'entonces'}, {'Id': 'x'}, {'Oprel': '='}, {'Id': 'x'}, {'Opsuma': '+'}, {'Id': 'y'}, {'PuntoYComa': ';'}, {'Sino': 'sino'}, {'Id': 'y'}, {'Oprel': '='}, {'Id': 'x'}, {'Opsuma': '+'}, {'Id': 'y'}, {'PuntoYComa': ';'}, {'FinSi': 'finsi'}]
+[{'Leer': 'leer'}, {'Id': 'x'}, {'PuntoYComa': ';'}, {'Leer': 'leer'}, {'Id': 'y'}, {'PuntoYComa': ';'}, {'Si': 'si'}, {'Id': 'x'}, {'Oprel': '>'}, {'Id': 'y'}, {'Entonces': 'entonces'}, {'Id': 'x'}, {'Equal': 'equal'}, {'Id': 'x'}, {'Opsuma': '+'}, {'Id': 'y'}, {'PuntoYComa': ';'}, {'Sino': 'sino'}, {'Id': 'y'}, {'Equal': 'equal'}, {'Id': 'x'}, {'Opsuma': '+'}, {'Id': 'y'}, {'PuntoYComa': ';'}, {'FinSi': 'finsi'}]
 
 
 =========TEST N°9=========
 
 func rest(n1; n2)
-    x = n1 - n2;
+    x equal n1 - n2;
     mostrar x;
 finfunc
 
 ---- OUTPUT 
-[{'Func': 'func'}, {'Id': 'rest'}, {'IzqParen': '('}, {'Id': 'n1'}, {'PuntoYComa': ';'}, {'Id': 'n2'}, {'DerParen': ')'}, {'Id': 'x'}, {'Oprel': '='}, {'Id': 'n1'}, {'Opsuma': '-'}, {'Id': 'n2'}, {'PuntoYComa': ';'}, {'Mostrar': 'mostrar'}, {'Id': 'x'}, {'PuntoYComa': ';'}, {'FinFunc': 'finfunc'}]
+[{'Func': 'func'}, {'Id': 'rest'}, {'IzqParen': '('}, {'Id': 'n1'}, {'PuntoYComa': ';'}, {'Id': 'n2'}, {'DerParen': ')'}, {'Id': 'x'}, {'Equal': 'equal'}, {'Id': 'n1'}, {'Opsuma': '-'}, {'Id': 'n2'}, {'PuntoYComa': ';'}, {'Mostrar': 'mostrar'}, {'Id': 'x'}, {'PuntoYComa': ';'}, {'FinFunc': 'finfunc'}]
 
 
 =========TEST N°10=========
 
-vmax=0;
+vmax equal 0;
 repetir
-    i=i+1;
+    i equal i+1;
     leer socio;
     leer dni;
     leer edad;
     si edad>vmax entonces 
-        msocio= socio;
-        mdni=dni;
-        medad=edad;
+        msocio equal socio;
+        mdni equal dni;
+        medad equal edad;
     finsi
-hasta i==50
+hasta i=50
 mostrar msocio;
 mostrar mdni;
 mostrar medad;
 
 ---- OUTPUT 
-[{'Id': 'vmax'}, {'Oprel': '='}, {'Num': '0'}, {'PuntoYComa': ';'}, {'Repetir': 'repetir'}, {'Id': 'i'}, {'Oprel': '='}, {'Id': 'i'}, {'Opsuma': '+'}, {'Num': '1'}, {'PuntoYComa': ';'}, {'Leer': 'leer'}, {'Id': 'socio'}, {'PuntoYComa': ';'}, {'Leer': 'leer'}, {'Id': 'dni'}, {'PuntoYComa': ';'}, {'Leer': 'leer'}, {'Id': 'edad'}, {'PuntoYComa': ';'}, {'Si': 'si'}, {'Id': 'edad'}, {'Oprel': '>'}, {'Id': 'vmax'}, {'Entonces': 'entonces'}, {'Id': 'msocio'}, {'Oprel': '='}, {'Id': 'socio'}, {'PuntoYComa': ';'}, {'Id': 'mdni'}, {'Oprel': '='}, {'Id': 'dni'}, {'PuntoYComa': ';'}, {'Id': 'medad'}, {'Oprel': '='}, {'Id': 'edad'}, {'PuntoYComa': ';'}, {'FinSi': 'finsi'}, {'Hasta': 'hasta'}, {'Id': 'i'}, {'Oprel': '='}, {'Oprel': '='}, {'Num': '50'}, {'Mostrar': 'mostrar'}, {'Id': 'msocio'}, {'PuntoYComa': ';'}, {'Mostrar': 'mostrar'}, {'Id': 'mdni'}, {'PuntoYComa': ';'}, {'Mostrar': 'mostrar'}, {'Id': 'medad'}, {'PuntoYComa': ';'}]
+[{'Id': 'vmax'}, {'Equal': 'equal'}, {'Num': '0'}, {'PuntoYComa': ';'}, {'Repetir': 'repetir'}, {'Id': 'i'}, {'Equal': 'equal'}, {'Id': 'i'}, {'Opsuma': '+'}, {'Num': '1'}, {'PuntoYComa': ';'}, {'Leer': 'leer'}, {'Id': 'socio'}, {'PuntoYComa': ';'}, {'Leer': 'leer'}, {'Id': 'dni'}, {'PuntoYComa': ';'}, {'Leer': 'leer'}, {'Id': 'edad'}, {'PuntoYComa': ';'}, {'Si': 'si'}, {'Id': 'edad'}, {'Oprel': '>'}, {'Id': 'vmax'}, {'Entonces': 'entonces'}, {'Id': 'msocio'}, {'Equal': 'equal'}, {'Id': 'socio'}, {'PuntoYComa': ';'}, {'Id': 'mdni'}, {'Equal': 'equal'}, {'Id': 'dni'}, {'PuntoYComa': ';'}, {'Id': 'medad'}, {'Equal': 'equal'}, {'Id': 'edad'}, {'PuntoYComa': ';'}, {'FinSi': 'finsi'}, {'Hasta': 'hasta'}, {'Id': 'i'}, {'Oprel': '='}, {'Num': '50'}, {'Mostrar': 'mostrar'}, {'Id': 'msocio'}, {'PuntoYComa': ';'}, {'Mostrar': 'mostrar'}, {'Id': 'mdni'}, {'PuntoYComa': ';'}, {'Mostrar': 'mostrar'}, {'Id': 'medad'}, {'PuntoYComa': ';'}]
 
 
